@@ -46,7 +46,6 @@ jobs:
             This release contains OpenWrt packages built for multiple architectures.
             
             **Source Repository:** ${{ github.event.client_payload.source_repository }}
-            **Triggered by:** ${{ github.event.client_payload.triggered_by }}
 
   build:
     name: Build ${{ matrix.arch }}-${{ matrix.sdk }}
