@@ -113,7 +113,7 @@ jobs:
         if: steps.changes.outputs.has_changes == 'true'
         run: |
           git add openlist/Makefile
-          git commit -m "Update v${{ steps.vars.outputs.openlist_version }}"
+          git commit -m "openlist: update to version ${{ steps.vars.outputs.openlist_version }}"
           
           git push origin HEAD:${{ github.ref_name }}
 
