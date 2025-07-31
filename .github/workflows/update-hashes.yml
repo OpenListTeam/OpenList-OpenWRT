@@ -104,7 +104,7 @@ jobs:
           fi
 
       - name: Import GPG key
-        if: steps.changes.outputs.changed == 'true'
+        if: steps.changes.outputs.has_changes == 'true'
         uses: crazy-max/ghaction-import-gpg@v6
         with:
           gpg_private_key: ${{ secrets.BOT_GPG_PRIVATE_KEY }}
@@ -115,7 +115,7 @@ jobs:
           git_tag_gpgsign: true
 
       - name: Setup CI Bot
-        if: steps.changes.outputs.changed == 'true'
+        if: steps.changes.outputs.has_changes == 'true'
         run: |
           git config --global user.name "The OpenList Bot"
           git config --global user.email "bot@openlist.team"
