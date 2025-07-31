@@ -103,21 +103,8 @@ jobs:
             git diff openlist/Makefile
           fi
 
-      - name: Check for changes and stage
-        id: verify-changed-files
-        run: |
-          cp -f ./backend/lang/*.json ./src/lang/en/ 2>/dev/null || :
-          if git diff --quiet HEAD -- src/lang/en/; then
-            echo "No changes detected in src/lang/en/"
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "Changes detected in src/lang/en/"
-            git add src/lang/en/
-            echo "changed=true" >> $GITHUB_OUTPUT
-          fi
-
       - name: Import GPG key
-        if: steps.verify-changed-files.outputs.changed == 'true'
+        if: steps.changes.outputs.changed == 'true'
         uses: crazy-max/ghaction-import-gpg@v6
         with:
           gpg_private_key: ${{ secrets.BOT_GPG_PRIVATE_KEY }}
@@ -128,7 +115,7 @@ jobs:
           git_tag_gpgsign: true
 
       - name: Setup CI Bot
-        if: steps.verify-changed-files.outputs.changed == 'true'
+        if: steps.changes.outputs.changed == 'true'
         run: |
           git config --global user.name "The OpenList Bot"
           git config --global user.email "bot@openlist.team"
