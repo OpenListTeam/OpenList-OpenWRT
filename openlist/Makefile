@@ -21,8 +21,9 @@ PKG_LICENSE:=AGPL-3.0
 PKG_LICENSE_FILE:=LICENSE
 PKG_MAINTAINER:=OpenList Team <openlistteam@gmail.com>
 
+WEB_FILE:=$(PKG_NAME)-frontend-dist-v$(PKG_WEB_VERSION).tar.gz
 define Download/openlist-frontend
-  FILE:=openlist-frontend-dist-v$(PKG_WEB_VERSION).tar.gz
+  FILE:=$(WEB_FILE)
   URL:=https://github.com/OpenListTeam/OpenList-Frontend/releases/download/v$(PKG_WEB_VERSION)/
   HASH:=4f114ef60c95c9fa5ffc808485fd322305460891476b3248188dc75e0b7a6a6a
 endef
@@ -32,14 +33,14 @@ PKG_BUILD_PARALLEL:=1
 PKG_USE_MIPS16:=0
 PKG_BUILD_FLAGS:=no-mips16
 
-GO_PKG:=github.com/OpenListTeam/OpenList
-GO_PKG_LDFLAGS:= \
-	-X '$(GO_PKG)/internal/conf.BuiltAt=$(shell date '+%Y-%m-%d %H:%M:%S %z')' \
-	-X '$(GO_PKG)/internal/conf.GoVersion=$(shell $(STAGING_DIR_HOSTPKG)/bin/go version | sed 's/go version //')' \
-	-X '$(GO_PKG)/internal/conf.GitAuthor=The OpenList Projects Contributors <noreply@openlist.team>' \
-	-X '$(GO_PKG)/internal/conf.GitCommit=tarball/$(shell echo $(PKG_HASH) | cut -c 1-7)' \
-	-X '$(GO_PKG)/internal/conf.Version=v$(PKG_VERSION) (OpenWrt $(ARCH_PACKAGES))' \
-	-X '$(GO_PKG)/internal/conf.WebVersion=v$(PKG_WEB_VERSION)'
+GO_PKG:=github.com/OpenListTeam/OpenList/v4
+GO_PKG_LDFLAGS_X:= \
+	'$(GO_PKG)/internal/conf.BuiltAt=$(shell date '+%Y-%m-%d %H:%M:%S %z')' \
+	'$(GO_PKG)/internal/conf.GoVersion=$(shell $(STAGING_DIR_HOSTPKG)/bin/go version | sed 's/go version //')' \
+	'$(GO_PKG)/internal/conf.GitAuthor=The OpenList Projects Contributors <noreply@openlist.team>' \
+	'$(GO_PKG)/internal/conf.GitCommit=tarball/$(shell echo $(PKG_HASH) | cut -c 1-7)' \
+	'$(GO_PKG)/internal/conf.Version=v$(PKG_VERSION) (OpenWrt $(ARCH_PACKAGES))' \
+	'$(GO_PKG)/internal/conf.WebVersion=v$(PKG_WEB_VERSION)'
 ifneq ($(CONFIG_ARCH_64BIT),y)
   GO_PKG_EXCLUDES:=drivers/lark
 endif
@@ -79,7 +80,7 @@ endif
 
 define Build/Prepare
 	$(call Build/Prepare/Default)
-	$(TAR) --strip-components=1 -C $(PKG_BUILD_DIR)/public/dist -xzf $(DL_DIR)/openlist-frontend-dist-v$(PKG_WEB_VERSION).tar.gz
+	$(TAR) --strip-components=1 -C $(PKG_BUILD_DIR)/public/dist -xzf $(DL_DIR)/$(WEB_FILE)
 	$(SED) 's_https://docs.oplist.org/logo.png_/assets/logo.png_g' $(PKG_BUILD_DIR)/public/dist/index.html
 	$(SED) 's_https://docs.oplist.org/logo.svg_/assets/logo.svg_g' $(PKG_BUILD_DIR)/public/dist/index.html
 	$(SED) 's_https://docs.oplist.org/logo.png_/assets/logo.png_g' $(PKG_BUILD_DIR)/public/dist/static/manifest.json
