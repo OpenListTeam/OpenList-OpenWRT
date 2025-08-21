@@ -104,7 +104,7 @@ jobs:
       - name: UPX Compress
         if: ${{ matrix.arch != 'loongarch64_generic' && matrix.arch != 'mips64_mips64r2' && matrix.arch != 'mips64_octeonplus' && matrix.arch != 'mips64el_mips64r2' && matrix.arch != 'riscv64_riscv64' }}
         run: |
-          sed -i '/INSTALL_DATA/a \\t/usr/bin/upx --lzma --best $(1)\/usr\/bin\/openlist' openlist/Makefile
+          sed -i '/openlist.init/a \\t/usr/bin/upx --lzma --best $(1)\/usr\/bin\/openlist' openlist/Makefile
 
       - name: Build Packages
         uses: OpenListTeam/openwrt-gh-action-sdk@go1.25
