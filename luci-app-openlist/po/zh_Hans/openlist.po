@@ -20,7 +20,7 @@ msgstr "一款支持多种存储的目录文件列表程序。"
 msgid "Setting"
 msgstr "设置"
 
-msgid "Basic Setting"
+msgid "Basic Settings"
 msgstr "基本设置"
 
 msgid "Global Settings"
@@ -265,3 +265,84 @@ msgstr "启用 SFTP"
 
 msgid "SFTP Port"
 msgstr "SFTP 端口"
+
+msgid "MCP"
+msgstr "MCP"
+
+msgid "Enabled MCP"
+msgstr "启用 MCP"
+
+msgid "Enable MCP (Model Context Protocol) server."
+msgstr "启用 MCP（模型上下文协议）服务器。"
+
+msgid "Move Workers"
+msgstr "移动任务线程数"
+
+msgid "Move Max Retry"
+msgstr "移动任务重试次数"
+
+msgid "Decompress Workers"
+msgstr "解压任务线程数"
+
+msgid "Decompress Max Retry"
+msgstr "解压任务重试次数"
+
+msgid "Decompress Upload Workers"
+msgstr "解压上传任务线程数"
+
+msgid "Decompress Upload Max Retry"
+msgstr "解压上传任务重试次数"
+
+msgid "Allow Retry Canceled Tasks"
+msgstr "允许重试已取消的任务"
+
+msgid "Allow retrying tasks that have been canceled."
+msgstr "允许重试已被取消的任务。"
+
+msgid "Auto Memory Limit (GB)"
+msgstr "自动内存限制（GB）"
+
+msgid "Automatically set memory limit based on server memory size, in GB. 0 to disable."
+msgstr "根据服务器内存大小自动设置内存限制，单位为 GB。设置为 0 禁用。"
+
+msgid "Min Free Memory (MB)"
+msgstr "最小空闲内存（MB）"
+
+msgid "Minimum free memory to keep, in MB. The program will try to free memory when below this value."
+msgstr "保留的最小空闲内存，单位为 MB。低于此值时程序将尝试释放内存。"
+
+msgid "Max Block Limit"
+msgstr "最大阻塞限制"
+
+msgid "Maximum number of blocking goroutines. 0 is unlimited."
+msgstr "最大阻塞 goroutine 数量。0 表示不限制。"
+
+msgid "Proxy Address"
+msgstr "代理地址"
+
+msgid "HTTP proxy address for outgoing requests, e.g. http://127.0.0.1:7890"
+msgstr "用于出站请求的 HTTP 代理地址，例如 http://127.0.0.1:7890"
+
+msgid "Enable H2C"
+msgstr "启用 H2C"
+
+msgid "Enable HTTP/2 over cleartext (h2c)."
+msgstr "启用基于明文的 HTTP/2（h2c）。"
+
+msgid "Enable HTTP/3"
+msgstr "启用 HTTP/3"
+
+msgid "Enable HTTP/3 (QUIC) protocol."
+msgstr "启用 HTTP/3（QUIC）协议。"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "SFTP"
+msgstr "SFTP"
+
+msgid "No log data."
+msgstr "暂无日志数据。"
+
+msgid "Refresh every %s seconds."
+msgstr "每 %s 秒刷新一次。"

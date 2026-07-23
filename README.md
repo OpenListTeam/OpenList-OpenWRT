@@ -63,7 +63,7 @@
 
   install via ghproxy:
   ```shell
-  sh -c "$(curl -ksS https://raw.githubusercontent.com/OpenListTeam/OpenList-OpenWRT/main/install.sh)" _ gh_proxy="https://gh.cooluc.com"
+  sh -c "$(curl -ksS https://gh-proxy.org/https://raw.githubusercontent.com/OpenListTeam/OpenList-OpenWRT/main/install.sh)" _ gh_proxy="https://gh-proxy.org"
   ```
 
 --------------
