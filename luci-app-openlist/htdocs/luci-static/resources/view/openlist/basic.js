@@ -202,7 +202,6 @@ return view.extend({
 		o = s.taboption('global', form.Value, 'proxy_address', _('Proxy Address'),
 			_('HTTP proxy address for outgoing requests, e.g. http://127.0.0.1:7890'));
 		o.default = '';
-		o.rmempty = false;
 
 		// Logs
 		o = s.taboption('log', form.Flag, 'log', _('Enable Logs'));
