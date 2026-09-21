@@ -118,7 +118,7 @@ jobs:
         if: steps.changes.outputs.has_changes == 'true'
         run: |
           git config --global user.name "The OpenList Bot"
-          git config --global user.email "bot@openlist.team"
+          git config --global user.email "bot@oplist.org"
 
       - name: Commit and Push Changes
         if: steps.changes.outputs.has_changes == 'true'
