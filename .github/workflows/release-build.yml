@@ -107,7 +107,7 @@ jobs:
           sed -i '/openlist.init/a \\t/usr/bin/upx --lzma --best $(1)\/usr\/bin\/openlist' openlist/Makefile
 
       - name: Build Packages
-        uses: OpenListTeam/openwrt-gh-action-sdk@go1.25
+        uses: OpenListTeam/openwrt-gh-action-sdk@go1.27
         env:
           ARCH: ${{ matrix.arch }}-${{ matrix.sdk }}
           FEEDNAME: packages_ci
