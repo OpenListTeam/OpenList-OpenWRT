@@ -26,10 +26,10 @@
 
 - Openwrt official SnapShots
 
-  *1. requires golang 1.24.x or latest version (Fix build for older branches of OpenWrt.)*
+  *1. requires golang 1.27.x (Fix build for older branches of OpenWrt.)*
   ```shell
   rm -rf feeds/packages/lang/golang
-  git clone https://github.com/OpenListTeam/packages_lang_golang -b 24.x feeds/packages/lang/golang
+  git clone https://github.com/OpenListTeam/packages_lang_golang -b 27.x feeds/packages/lang/golang
   ```
 
   *2. get luci-app-openlist code & building*
